@@ -1,0 +1,24 @@
+{
+  "name": "zelframework/router",
+  "version": "v0.1.0",
+  "description": "Router",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Brtizell",
+      "email": "britzel99@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "ZelFramework\\Router\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ZelFramework\\Router\\Tests\\": "tests/"
+    }
+  }
+}
