@@ -110,11 +110,13 @@ class Router
 	private function scanFolder(string $path): array
 	{
 		$files = [];
-		
-		foreach (scandir($path) as $file) {
-			if (substr($file, -4) === '.php')
-				$files[] = substr($file, 0, -4);
-		}
+		if (file_exists($path))
+			foreach (scandir($path) as $file) {
+				if (substr($file, -4) === '.php')
+					$files[] = substr($file, 0, -4);
+			}
+		else
+			throw new \Exception('Path not found');
 		
 		return $files;
 	}
