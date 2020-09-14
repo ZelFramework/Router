@@ -148,7 +148,7 @@ class Router
 			preg_match_all('/\{(.[a-zA-Z0-9]*)\}/', $route->getPath(), $matches);
 			$uriExplode = explode('?', substr($uri, 1));
 			$uriExplode = explode('/', $uriExplode[0]);
-			$routeExplode = explode('/', substr($route->getPath(), 1));
+			$routeExplode = explode('/', $route->getPath()[0] === '/' ? substr($route->getPath(), 1) : $route->getPath());
 			$isGood = false;
 			$params = [];
 			
