@@ -45,7 +45,7 @@ class Router
 	public function __construct(array $controllers, array $params = [], $isDev = false)
 	{
 		$this->setController($controllers);
-		if (isset($params['defaultURI']))
+		if (isset($params['defaultUri']))
 			$this->defaultURI = ($params['defaultUri'][strlen($params['defaultUri']) - 1] === '/' ? substr($params['defaultUri'], 0, -1) : $params['defaultUri']);
 		
 	}
