@@ -46,7 +46,7 @@ class Router
 	{
 		$this->setController($controllers);
 		if (isset($params['defaultURI']))
-			$this->defaultURI = $params['defaultURI'];
+			$this->defaultURI = ($params['defaultUri'][strlen($params['defaultUri']) - 1] === '/' ? substr($params['defaultUri'], 0, -1) : $params['defaultUri']);
 		
 	}
 	
@@ -93,7 +93,7 @@ class Router
 				foreach ($rc->getMethods() as $method) {
 					if (preg_match('/@Route\(.+\)/', $method->getDocComment(), $matches)) {
 						$params = $this->getRouteParams($matches[0]);
-						$route = new Route($params[0], $params[1]);
+						$route = new Route(($path[strlen($path) - 1] === '/' ? substr($path, 0, -1) : $path) . $params[0], $params[1]);
 						$route->setClass($method->class);
 						$route->setMethod($method->getName());
 						RouteCollection::addRoute($route);
