@@ -128,7 +128,7 @@ class Router
 	private function getRouteParams(string $call): array
 	{
 		preg_match('/\("([a-z\/-{}]*)\"/', $call, $route);
-		preg_match_all('/([a-zA-Z0-9]*)=\"([a-zA-Z0-9_]*)\"/', $call, $matches);
+		preg_match_all('/([a-zA-Z0-9]*)=\"([a-zA-Z0-9_\-.]*)\"/', $call, $matches);
 		$config = [];
 		for ($i = 0; $i < count($matches[0]); $i++) {
 			$config[$matches[1][$i]] = $matches[2][$i];
